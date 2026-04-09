@@ -110,7 +110,7 @@
 </nav>
 <!-- Hero Section -->
 <header class="relative h-screen min-h-[800px] w-full overflow-hidden flex flex-col justify-end">
-<img class="absolute inset-0 w-full h-full object-cover z-0" data-alt="Intricate digital octopus silhouette emerging from obsidian shadows with pulsing bioluminescent violet and purple neural pathways glowing against a dark atmospheric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrK7_SU8Pvje1V5_S8wCOlGazI3AfcYlHt0abbI9ajEGUYcie0KFHRzna07JSMylPpZU2a5z6CHIDzm_WY-ZeCv2_a3WsjKkRbHooMzegG1__ZROdhN03F47l57177kjEAN4zwNGXsJEkGJ_D8XCD0Bq6JVPlhfT0u9F6I2RyNZmwv89TuPjOx3w7PijblaWciOVygiSLisaEUctoiTZxq8UVo-o-iFFBUP8ZJ1eZeCtlxdAyE-UxAkkQzKhvcvXpap_mX8Fua5ZP2" style="">
+<img class="absolute inset-0 w-full h-full object-contain object-center opacity-90 z-0" data-alt="Intricate digital octopus silhouette emerging from obsidian shadows with pulsing bioluminescent violet and purple neural pathways glowing against a dark atmospheric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrK7_SU8Pvje1V5_S8wCOlGazI3AfcYlHt0abbI9ajEGUYcie0KFHRzna07JSMylPpZU2a5z6CHIDzm_WY-ZeCv2_a3WsjKkRbHooMzegG1__ZROdhN03F47l57177kjEAN4zwNGXsJEkGJ_D8XCD0Bq6JVPlhfT0u9F6I2RyNZmwv89TuPjOx3w7PijblaWciOVygiSLisaEUctoiTZxq8UVo-o-iFFBUP8ZJ1eZeCtlxdAyE-UxAkkQzKhvcvXpap_mX8Fua5ZP2" style="">
 <div class="absolute inset-0 hero-gradient-overlay z-10"></div>
 <div class="relative z-20 max-w-screen-xl mx-auto px-8 pb-24 w-full">
 <div class="max-w-4xl">
@@ -227,4 +227,130 @@
 </div>
 </div>
 </footer>
+<!-- Waitlist Modal -->
+<div id="waitlist-modal" class="fixed inset-0 z-[100] flex items-center justify-center hidden bg-black/60 backdrop-blur-sm transition-opacity duration-300">
+    <div class="bg-surface-container-highest p-8 rounded-2xl border border-outline-variant/20 shadow-2xl w-full max-w-md transform transition-all scale-95 opacity-0" id="waitlist-modal-content">
+        <h3 class="text-3xl font-headline font-bold mb-2">Join Waitlist</h3>
+        <p class="text-on-surface-variant font-body mb-6">Enter your details to secure early access.</p>
+        
+        <form id="waitlist-form" class="flex flex-col gap-4">
+            <div>
+                <label class="block text-sm font-medium mb-1 text-on-surface/80">Name</label>
+                <input type="text" id="waitlist-name" required class="w-full bg-[#0b1326] border border-outline-variant/30 rounded-lg px-4 py-3 text-white placeholder:text-on-surface/30 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1 text-on-surface/80">Work Email</label>
+                <input type="email" id="waitlist-email" required class="w-full bg-[#0b1326] border border-outline-variant/30 rounded-lg px-4 py-3 text-white placeholder:text-on-surface/30 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all">
+            </div>
+            
+            <div id="waitlist-error" class="text-error text-sm hidden font-medium"></div>
+            <div id="waitlist-success" class="text-secondary text-sm hidden font-medium">Successfully added to waitlist!</div>
+            
+            <div class="flex justify-end gap-3 mt-4">
+                <button type="button" id="close-modal-btn" class="px-5 py-2.5 rounded-lg border border-outline-variant/30 font-headline font-bold text-on-surface hover:bg-surface-variant/30 transition-colors">Cancel</button>
+                <button type="submit" id="submit-modal-btn" class="primary-cta px-6 py-2.5 rounded-lg font-headline font-bold text-on-primary-container tracking-tighter uppercase transition-transform hover:scale-105">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('waitlist-modal');
+    const modalContent = document.getElementById('waitlist-modal-content');
+    const closeBtn = document.getElementById('close-modal-btn');
+    const form = document.getElementById('waitlist-form');
+    const nameInput = document.getElementById('waitlist-name');
+    const emailInput = document.getElementById('waitlist-email');
+    const errorDiv = document.getElementById('waitlist-error');
+    const successDiv = document.getElementById('waitlist-success');
+    const submitBtn = document.getElementById('submit-modal-btn');
+    
+    // Bottom input
+    const bottomEmailInput = document.querySelector('input[type="email"]');
+
+    function openModal() {
+        if(bottomEmailInput && bottomEmailInput.value) {
+            emailInput.value = bottomEmailInput.value;
+        }
+        modal.classList.remove('hidden');
+        // Trigger animation
+        setTimeout(() => {
+            modalContent.classList.remove('scale-95', 'opacity-0');
+            modalContent.classList.add('scale-100', 'opacity-100');
+        }, 10);
+        
+        successDiv.classList.add('hidden');
+        errorDiv.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerText = 'Submit';
+        submitBtn.classList.remove('hidden');
+    }
+
+    function closeModal() {
+        modalContent.classList.remove('scale-100', 'opacity-100');
+        modalContent.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+
+    // Attach to all buttons containing "waitlist" (case insensitive)
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+        if(btn.innerText.toLowerCase().includes('waitlist')) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal) closeModal();
+    });
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorDiv.classList.add('hidden');
+        
+        const email = emailInput.value;
+        const name = nameInput.value;
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errorDiv.innerText = "Please enter a valid email address.";
+            errorDiv.classList.remove('hidden');
+            return;
+        }
+
+        try {
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Saving...';
+            
+            const res = await fetch('http://localhost:3001/api/waitlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email })
+            });
+            const data = await res.json();
+            
+            if(res.ok) {
+                successDiv.classList.remove('hidden');
+                submitBtn.classList.add('hidden'); // hide submit on success
+                setTimeout(() => closeModal(), 2000);
+            } else {
+                errorDiv.innerText = data.error || 'Failed to submit.';
+                errorDiv.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Submit';
+            }
+        } catch(err) {
+            errorDiv.innerText = 'Server error. Please try again.';
+            errorDiv.classList.remove('hidden');
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Submit';
+        }
+    });
+</script>
 </body></html>
