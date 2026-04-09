@@ -46,7 +46,15 @@ app.post('/api/waitlist', async (req, res) => {
     }
 });
 
-const PORT = 3001;
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(__dirname));
+
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-    console.log(`Database Server running on http://localhost:${PORT}`);
+    console.log(`Database Server running on port ${PORT}`);
 });
