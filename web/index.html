@@ -1,0 +1,230 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Octopus One | The Obsidian Conductor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#283044",
+                    "inverse-primary": "#842bd2",
+                    "tertiary-fixed-dim": "#ddb8ff",
+                    "surface-container-low": "#131b2e",
+                    "primary-container": "#8d36db",
+                    "surface-container-lowest": "#060e20",
+                    "on-primary-container": "#f2dfff",
+                    "on-secondary": "#00344d",
+                    "error-container": "#93000a",
+                    "tertiary-container": "#844abe",
+                    "secondary": "#89ceff",
+                    "surface-variant": "#2d3449",
+                    "on-tertiary": "#490081",
+                    "on-secondary-fixed": "#001e2f",
+                    "on-secondary-fixed-variant": "#004c6e",
+                    "on-secondary-container": "#00344e",
+                    "surface-dim": "#0b1326",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#2c0051",
+                    "outline": "#958da1",
+                    "on-background": "#dae2fd",
+                    "background": "#0b1326",
+                    "primary-fixed-dim": "#ddb7ff",
+                    "surface-container-high": "#222a3d",
+                    "primary-fixed": "#f0dbff",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#62259b",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#6900b3",
+                    "surface-container-highest": "#2d3449",
+                    "primary": "#ddb7ff",
+                    "tertiary-fixed": "#f0dbff",
+                    "surface": "#0b1326",
+                    "secondary-fixed": "#c9e6ff",
+                    "secondary-fixed-dim": "#89ceff",
+                    "on-surface": "#dae2fd",
+                    "secondary-container": "#00a2e6",
+                    "on-tertiary-fixed": "#2c0051",
+                    "on-tertiary-container": "#f2e0ff",
+                    "on-primary": "#490080",
+                    "surface-tint": "#ddb7ff",
+                    "outline-variant": "#4a4455",
+                    "on-surface-variant": "#ccc3d8",
+                    "inverse-surface": "#dae2fd",
+                    "tertiary": "#ddb8ff",
+                    "surface-container": "#171f33",
+                    "surface-bright": "#31394d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(45, 52, 73, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-gradient-overlay {
+            background: linear-gradient(to top, #0b1326 0%, rgba(11, 19, 38, 0.2) 50%, transparent 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ddb7ff 0%, #8d36db 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .primary-cta {
+            background: linear-gradient(135deg, #ddb7ff 0%, #8d36db 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(141,54,219,0.06)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#ddb7ff] font-headline" style="">Octopus One</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="text-[#ddb7ff] border-b-2 border-[#ddb7ff] pb-1 font-headline tracking-tighter uppercase font-bold text-sm" href="#" style="">Platform</a>
+<a class="text-slate-400 font-medium hover:text-[#ddb7ff] transition-colors duration-300 font-headline tracking-tighter uppercase text-sm" href="#" style="">Cephra</a>
+<a class="text-slate-400 font-medium hover:text-[#ddb7ff] transition-colors duration-300 font-headline tracking-tighter uppercase text-sm" href="#" style="">About</a>
+</div>
+<button class="primary-cta px-6 py-2 rounded-md font-headline font-bold text-on-primary-container text-sm tracking-tighter uppercase scale-95 active:scale-90 transition-transform" style="">
+                Join Waitlist
+            </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen min-h-[800px] w-full overflow-hidden flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover z-0" data-alt="Intricate digital octopus silhouette emerging from obsidian shadows with pulsing bioluminescent violet and purple neural pathways glowing against a dark atmospheric background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrK7_SU8Pvje1V5_S8wCOlGazI3AfcYlHt0abbI9ajEGUYcie0KFHRzna07JSMylPpZU2a5z6CHIDzm_WY-ZeCv2_a3WsjKkRbHooMzegG1__ZROdhN03F47l57177kjEAN4zwNGXsJEkGJ_D8XCD0Bq6JVPlhfT0u9F6I2RyNZmwv89TuPjOx3w7PijblaWciOVygiSLisaEUctoiTZxq8UVo-o-iFFBUP8ZJ1eZeCtlxdAyE-UxAkkQzKhvcvXpap_mX8Fua5ZP2" style="">
+<div class="absolute inset-0 hero-gradient-overlay z-10"></div>
+<div class="relative z-20 max-w-screen-xl mx-auto px-8 pb-24 w-full">
+<div class="max-w-4xl">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tighter leading-tight mb-6" style="">
+                    Agents assist. <br>
+<span class="text-gradient" style="">Octopus One orchestrates your business.</span>
+</h1>
+<p class="text-xl md:text-2xl font-headline font-semibold text-primary/80 mb-4" style="">
+                    The next evolution of work isn’t tools. It’s intelligence.
+                </p>
+<p class="text-lg md:text-xl text-on-surface/70 leading-relaxed mb-10 max-w-2xl" style="">
+                    An adaptive AI layer that learns your business, coordinates intelligent agents, and continuously moves your operations forward.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="primary-cta px-8 py-4 rounded-lg font-headline font-bold text-on-primary-container tracking-tighter uppercase transition-transform hover:scale-105 active:scale-95" style="">
+                        Join the waitlist
+                    </button>
+<button class="px-8 py-4 rounded-lg border border-outline-variant/30 font-headline font-bold text-on-surface tracking-tighter uppercase hover:bg-surface-variant/30 transition-colors" style="">
+                        Learn more
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Section 2: Concept -->
+<section class="py-32 px-8 bg-surface">
+<div class="max-w-screen-xl mx-auto flex flex-col items-center text-center">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold tracking-tight mb-12" style="">
+                From static systems to <span class="text-gradient" style="">living intelligence</span>
+</h2>
+<div class="w-24 h-px bg-primary/30 mb-12"></div>
+<p class="text-2xl md:text-3xl text-on-surface/80 max-w-4xl leading-relaxed font-light" style="">
+                Most software is reactive. Octopus One is proactive. It observes patterns, anticipates outcomes, flags risks before they surface, and activates the right agents at the right time.
+            </p>
+</div>
+</section>
+<!-- Section 3: Philosophy -->
+<section class="py-24 px-8 bg-surface-container-lowest overflow-hidden">
+<div class="max-w-screen-xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-5xl font-headline font-extrabold tracking-tighter mb-6 leading-tight" style="">
+                        A system that <br> <span class="text-gradient" style="">grows with you</span>
+</h2>
+<p class="text-lg text-on-surface/70 leading-relaxed mb-6" style="">
+                        Octopus One scales intelligence—not complexity. As your business evolves, agents adapt, workflows refine, and operations stay aligned automatically.
+                    </p>
+<p class="text-lg text-on-surface/70 leading-relaxed" style="">
+                        We've built an infrastructure that turns organizational knowledge into an enduring asset, ensuring that your system becomes more valuable with every interaction.
+                    </p>
+</div>
+<div class="relative aspect-square max-w-md mx-auto lg:mx-0 lg:ml-auto">
+<div class="absolute inset-0 bg-primary/10 rounded-full blur-3xl"></div>
+<img class="relative z-10 w-full h-full object-contain mix-blend-screen opacity-80" data-alt="Abstract ethereal neural network visualization with glowing violet nodes and connecting threads of light suspended in a deep obsidian void" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyceEkz2cCeyegPgs4tlnMVdV_Np2wxzX_FZUZh9Vdn39RMA5LrkB9ewTZPUFrpBgFC0Nv2Mf2c5qlw1Dux6MKArtlQukx61IqQGRdTy9tJti_hjG77neoZE6HIM2IAQAYZsaZpNZEYXfL4YtesHtXRagm5-p3vejOvfK4eHs2nmqORe4NwVMObqwOzD4OGEcUZDS3-8JuXvLUT3CVtvdGWMrkYAx_g9yFKSaW7_Nohp-iD-UgYpD-3K-i6xHzC5kPDgqs91j66FmA" style="">
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Meet Cephra & Deep Dive (Merged) -->
+<section class="py-32 px-8 bg-surface-container-low" id="cephra-section">
+<div class="max-w-screen-xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Sidebar / Title Area -->
+<div class="lg:w-1/3">
+<div class="sticky top-32">
+<h2 class="text-3xl font-headline font-bold tracking-tighter uppercase text-primary mb-2" style="">The First System</h2>
+<h3 class="text-5xl font-headline font-extrabold tracking-tighter mb-6" style="">Meet Cephra: The Future of ERP</h3>
+<p class="text-xl text-on-surface/60 mb-8" style="">Powered by the Octopus One orchestration engine.</p>
+<div class="h-1 w-20 bg-gradient-to-r from-primary to-primary-container"></div>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="lg:w-2/3 space-y-10 text-xl text-on-surface/80 leading-relaxed font-body">
+<p class="" style="">Cephra is the first product coming from OctopusOne — an intelligent, industry-specific ERP platform built for service-based businesses. Unlike generic enterprise software, Cephra arrives pre-configured for the way your industry actually works. Each edition is purpose-built for a specific vertical — field service, safety consulting, hospitality — so your team goes live faster and adopts the system naturally.</p>
+<div class="p-8 border-l-4 border-primary bg-surface/40 glass-panel rounded-r-lg">
+<p class="" style="">The flagship edition, Cephra Field Service, connects every role in a field service organization — from the sales rep quoting the job, to the technician on site, to the client approving changes through a branded portal. Site knowledge preserved. Change orders automated. Clients informed in real time.</p>
+</div>
+<p class="" style="">CephraMind, OctopusOne's agentic intelligence plugin, can be added to any Cephra edition — turning your ERP into an autonomous operating system that dispatches, predicts, and acts on your behalf.</p>
+<p class="" style="">CephraMind does not replace human judgment — it eliminates the administrative burden that prevents skilled people from focusing on the work that matters.</p>
+<div class="pt-6">
+<p class="font-headline font-bold text-2xl text-on-surface" style="">Cephra is coming soon. Built for the businesses that keep the world running.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final Section -->
+<section class="py-32 px-8 bg-surface-container-low">
+<div class="max-w-screen-lg mx-auto text-center glass-panel p-16 md:p-24 rounded-3xl border border-outline-variant/10">
+<h2 class="text-5xl md:text-6xl font-headline font-extrabold tracking-tighter mb-6" style="">Early access opening soon</h2>
+<p class="text-xl md:text-2xl text-on-surface/60 mb-12 max-w-2xl mx-auto" style="">
+                Be among the first to experience a system that understands your business.
+            </p>
+<div class="max-w-md mx-auto flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface-container-highest border-none rounded-lg px-6 py-4 text-on-surface placeholder:text-on-surface/30 focus:ring-2 focus:ring-primary/50" placeholder="Enter your work email" type="email">
+<button class="primary-cta px-10 py-4 rounded-lg font-headline font-bold text-on-primary-container tracking-tighter uppercase whitespace-nowrap transition-transform hover:scale-105" style="">
+                    Join the waitlist
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#060e20] w-full py-12 px-8">
+<div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col gap-2">
+<div class="font-headline font-black text-[#ddb7ff] text-xl" style="">Octopus One</div>
+<p class="font-body text-sm tracking-wide text-slate-500" style="">© 2024 Octopus One. The Obsidian Conductor.</p>
+</div>
+<div class="flex gap-10">
+<a class="text-slate-500 hover:text-white transition-opacity duration-300 font-body text-sm tracking-wide opacity-80 hover:opacity-100" href="#" style="">Privacy</a>
+<a class="text-slate-500 hover:text-white transition-opacity duration-300 font-body text-sm tracking-wide opacity-80 hover:opacity-100" href="#" style="">Terms</a>
+<a class="text-slate-500 hover:text-white transition-opacity duration-300 font-body text-sm tracking-wide opacity-80 hover:opacity-100" href="#" style="">Security</a>
+<a class="text-slate-500 hover:text-white transition-opacity duration-300 font-body text-sm tracking-wide opacity-80 hover:opacity-100" href="#" style="">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

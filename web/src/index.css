@@ -1,0 +1,30 @@
+:root {
+  --bg: #020202;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --accent-purple: #A855F7;
+  --accent-violet: #7C3AED;
+  --surface-lifted: #111111;
+  --surface-cta: #0F0F0F;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6, .display-font {
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-purple), var(--accent-violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
